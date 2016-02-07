@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+	
+	<title>Document</title>
+	<style>
+		html, body, ul, li{
+			margin: 0;
+			padding: 0 ;
+		}
+		body {
+			padding: 40px;
+		}
+		#searchArea {
+			width: 250px;
+			margin: 0 auto 40px;
+
+		}
+		.container {
+			width: 400px;
+			max-height: 600px;
+			overflow-y: scroll;
+			border: 1px solid red;
+			margin: 0 auto;
+		}
+	</style>
+</head>
+<body>
+	<div id="searchArea">
+		<input type="text" placeholder= "search" id="text"/>
+		<input type="button" value ="搜索" id="search"/>
+	</div>
+	  <div class="container">
+
+		<ul id="list">
+			
+		</ul>
+	</div>
+		<script>
+var isearch = (function(){
+		var compare = function(text, searchArr) {
+		var searchStartTime = Date.now(), searchEndTime, isOverTime = false, OVERTIMEBASE = 1;
+		var pattern = new RegExp(text, 'ig');
+		try {
+			var firstIndex;
+			searchArr.filter(function(item,i){ 
+				searchEndTime = Date.now();
+				var timePassed = (searchEndTime - searchStartTime) / 1000;
+					//console.log(timePassed);
+				if(timePassed > OVERTIMEBASE){
+					isOverTime = true;
+					throw new Error('OverTime');
+				}
+				else if(!isOverTime && !firstIndex && item.innerHTML.toLocaleLowerCase().search(pattern) > -1){
+					firstIndex = i;
+					return firstIndex;
+      	}
+			});
+			return firstIndex;				
+		}
+		catch(e) {
+			if(e.message == 'OverTime'){
+					return -1;
+				}
+		}
+	};
+var queryAudio = function(conId,itemCla,valueId) {
+		//var box = document.querySelector(conId);
+		var box = document.getElementById(conId);
+		var items = Array.prototype.slice.call(document.getElementsByClassName(itemCla));
+		var allIndex = document.getElementsByClassName(itemCla).length;
+		var itemHeight = items[0].clientHeight;
+		var searchText = document.getElementById(valueId).value.trim();
+		var index = -1;
+		if(typeof searchText == 'string' && searchText.constructor === String ){
+		  index = compare(searchText.toLocaleLowerCase(), items);
+			console.log(index);
+		}
+		if(index !== -1 && index < (allIndex - 6)){
+			box.style.marginTop = -index * itemHeight + 'px';
+		}
+		else {
+			box.style.marginTop = -(allIndex - 6) * itemHeight + 'px';
+		}
+	};
+	return {
+		queryAudio: queryAudio
+	};
+})();
+
+	    window.onload = load();
+      var ul ;
+	    function load() {
+				ul = document.getElementById('list');
+				var li;
+				var alphaArr = ['a','b','中文','d', '好声音', '哇', 'z', '第一期'];
+				var alphaArrLength = alphaArr.length;
+				for(var i = 0; i< 20000; i++){
+						li = document.createElement('li');
+						li.innerHTML = alphaArr[Math.floor(Math.random() * alphaArrLength)] + alphaArr[Math.floor(Math.random() * alphaArrLength)] +i;
+						li.className = 'item';
+						if(i == 19999) {
+							li.innerHTML = 'aabbzz';
+						}
+						ul.appendChild(li);
+
+				}
+		  }
+		var searchBtn = document.getElementById('search');
+		searchBtn.onclick = function() {
+			isearch.queryAudio('list','item','text');
+		};
+
+	</script>
+</body>
+</html>

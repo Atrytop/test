@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>3d</title>
+	<style>
+		#container {
+			/*border: 1px solid red;*/
+		}
+		.han {
+			/*background-color: green;*/
+			/*border-radius: 160px*/
+		}
+	</style>
+</head>
+<body>
+	<button>redraw</button>
+	<div id="container" style="min-width:700px;height:400px"></div>
+﻿	<div id="sliders" style="min-width:310px;max-width: 800px;margin: 0 auto;">
+		<table>
+			<tr><td>Alpha Angle</td><td><input id="R0" type="range" min="0" max="45" value="15"/> <span id="R0-value" class="value"></span></td></tr>
+			<tr><td>Beta Angle</td><td><input id="R1" type="range" min="0" max="45" value="15"/> <span id="R1-value" class="value"></span></td></tr>
+		</table>
+	</div>
+	<script src="jq.js"></script>
+	<script src="highchart.js"></script>
+	<script src="../Highcharts-4.2.1/js/Highcharts-3d.js"></script>
+	<script>
+		//$(function () {
+    //Set up the chart
+    var chart = new Highcharts.Chart({
+        chart: {
+            renderTo: 'container',
+            type: 'column',
+            options3d: {
+                enabled: true,
+                alpha: 6,
+                beta: 6,
+                depth: 50,
+                viewDistance: 25
+            },
+            className: 'han',
+            ignoreHiddenSeries: true,
+            viewDistance: 1000,
+            panKey: 'shift',
+            panning: true,
+            plotShadow: true,
+            //plotBorderColor: 'red',
+            plotBackgroundImage: '',
+            //plotBorderWidth: '5',
+            zoomType: 'xy',
+            shadow: true,
+            style: {
+            	fontFamily: '微软雅黑',
+            	color: '#fff'
+            },
+            spacing: 10,
+            margin: 50
+        },
+        subtitle: {
+          text: '<a>http://www.baidu.com</a><br/>han',
+          style: {
+            color: 'red',
+            position: 'absolute',
+            left: '100px'
+          },
+          floating: false,
+          useHTML: false,
+          verticalAlign: 'center',
+          x: 100,
+          y: 100
+        },
+        legend: {
+          text: 'han',
+          align: 'right',
+          verticalAlign: 'top',
+          x: 0,
+          y: 0,
+          backgroundColor: '#ccc',
+          borderColor: 'red',
+          enabled: true,
+          floating: true,
+          layout: 'vertical',
+          reversed: true,
+          rtl: true,
+          shadow: true,
+          width: 100,
+          symbolHeight: '10',
+          symbolWidth: '10',
+          title: {
+            text: 'han'
+          },
+        },
+        tooltip: {
+          followPointer: false,
+        },
+        title: {
+            text: null
+        },
+        plotOptions: {
+            column: {
+                depth: 25
+            }
+        },
+        series: [{
+            data: [29.9, 0, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+        },{
+            data: [291.9, 10, 106.4, 129.2, 1414.0, 176.0, 135.6, 148.5, 216.4, 1914.1, 951.6, 54.4]
+        }],
+        xAxis: {
+          alternateGridColor: '#ccc',
+          categories: ['han','liu'],
+          lineColor: 'red',
+          lineWidth: 3,
+          tickColor: 'red',
+          title: 'han',
+          type: 'datetime'
+        },
+        yAxis: {
+          alternateGridColor: 'rgba(0,0,0,0.3)',
+          categories: ['han','liu'],
+          lineColor: 'green',
+          title: 'han'
+        },
+        // drilldown: {
+        //     activeAxisLabelStyle: {
+        //         textDecoration: 'none',
+        //         fontStyle: 'italic'
+        //     },
+        //     activeDataLabelStyle: {
+        //         textDecoration: 'none',
+        //         fontStyle: 'italic'
+        //     },
+        //     series: [{
+        //         id: 'animals',
+        //         data: [
+        //             ['Cats', 4],
+        //             ['Dogs', 2],
+        //             ['Cows', 1],
+        //             ['Sheep', 2],
+        //             ['Pigs', 1]
+        //         ]
+        //     }, {
+        //         id: 'fruits',
+        //         data: [
+        //             ['Apples', 4],
+        //             ['Oranges', 2]
+        //         ]
+        //     }]
+        // }
+    });
+    // Activate the sliders
+    $('#R0').on('change', function(){
+      chart.options.chart.options3d.alpha = this.value;
+      showValues();
+      chart.redraw(true);
+    });
+    $('#R1').on('change', function(){
+      chart.options.chart.options3d.beta = this.value;
+      showValues();
+      chart.redraw(true);
+    });
+
+    function showValues() {
+      $('#R0-value').html(chart.options.chart.options3d.alpha);
+      $('#R1-value').html(chart.options.chart.options3d.beta);
+    }
+    showValues();
+ //});
+		document.querySelector('button').addEventListener('click',function(){
+			console.log(123);
+			chart.redraw(true);
+		},false);
+	</script>
+</body>
+</html>
