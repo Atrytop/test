@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<title>select</title>
+	<style>
+		* {
+			box-sizing: border-box;
+		}
+		html, body {
+			margin: 0;
+			padding: 0
+		}
+		.item {
+			display: none;
+		}
+		.i-checkbox {
+			width: 30px;
+			height: 30px;
+			border: 1px solid #333;
+			background-color: #fff
+		}
+		.i-checkbox input {
+			opacity: 0;
+		}
+		.on {
+			background-color: #333
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<input type="text" value="请选择">
+		<div class="item">1</div>
+		<div class="item">2</div>
+	</div>
+	<div class="box">
+		<input type="text" value="请选择">
+		<div class="item">3</div>
+		<div class="item">4</div>
+	</div>
+	<div>
+		<div class="i-checkbox">
+			<input type="checkbox" id="one">
+		</div>
+		<label for="one">one</label>
+	</div>
+	<script src="../jQuery/js/jquery-1.11.3.min.js"></script>
+	<script>
+		$('.box .item').click(function(e){
+			var text = $(this).html();
+			 $(this).parent().children('input').val(text);
+		});
+		$('.box').click(function(){
+			$(this).children('.item').slideToggle();
+		});
+		$('.i-checkbox').click(function(){
+			var checkbox = $('#one');
+			if (!!checkbox[0].checked) {
+				checkbox[0].checked = false;
+			}
+			else {
+				checkbox[0].checked = true;
+			}
+			$(this).toggleClass('on');
+		});
+		var a = $('#one');
+	</script>
+</body>
+</html>

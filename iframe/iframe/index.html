@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Post Message</title>
+  </head>
+  <body>
+   <table>
+    <tr>
+        <td style="border:1px solid black" >
+	      <iframe id="left" src="left.html"></iframe>
+	    </td>
+	    <td style="border:1px solid green">
+	      <iframe id="right" src="right.html"></iframe>
+	    </td>
+
+	    
+    </tr>
+    </table>
+    <script type="text/javascript">
+
+            var arr = [];
+            window.addEventListener('message',function(e){
+				
+                var height = e.data;
+				alert(height)
+               document.getElementById('left').style.height=height;
+               document.getElementById('right').style.height = height;
+                
+            },false);
+
+            
+    </script>
+  </body>
+</html>

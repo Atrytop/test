@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Document</title>
+	<link rel="stylesheet" href="dist/chartist.min.css">
+	<script src="dist/chartist.js"></script>
+	<style>
+	
+	</style>
+</head>
+<body>
+	<div id="h1"></div>
+	<div id="h2"></div>
+	<script>
+		var data = {
+			labels: [1,789,123,789],
+			series: [
+				[5.5,6.9,6.1,9.1]
+			]
+		}
+		var options = {
+			axisX: {
+				offset: 10,
+				position: 'start',
+				labelOffset: {
+					x: 10,
+					y: -10
+				},
+				showLabel: true,
+				showGrid: false,
+				labelInterpolationFnc: Chartist.noop,
+				scaleMinSpace: 10,
+			}
+		}
+		new Chartist.Bar('#h1',data,options);
+		var options01 = {
+			axisX: {
+				offset: 30
+			}
+		}
+		new Chartist.Bar('#h2',data,options01)
+	</script>
+</body>
+</html>

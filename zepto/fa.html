@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+
+</head>
+<body>
+<div id="wrap">
+<table>
+	<tr>
+		<td>one1</td>
+		<td>one2</td>
+		<td>one3</td>
+	</tr>
+	<tr>
+		<td>two1</td>
+		<td>two2</td>
+		<td>two3</td>
+	</tr>
+	<tr>
+		<td>three1</td>
+		<td>three2</td>
+		<td>three3</td>
+	</tr>
+</table>
+<script type="text/javascript">
+	var table = document.getElementsByTagName('table')[0];
+	var trs = table.getElementsByTagName('tr');
+	var html = '';
+	var getD = function () {
+		for (var i = 0; i < trs.length; i++) {
+			for (var j = 0; j < trs[i].getElementsByTagName('td').length; j++) {
+				html += trs[i].getElementsByTagName('td')[j].innerHTML + ',';
+			}
+		}
+		return html;
+	}
+getD()
+</script>
+</body>
+</html>
