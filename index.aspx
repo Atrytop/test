@@ -3,39 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
-  <title>one</title>
+  <title>han</title>
+  <link rel="stylesheet" href="css/common.css">
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    .wrap {
+    header {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
-      height: 120px;
-      background-color: #999;
-      white-space: nowrap;
-      overflow: scroll;
-    }
-    .item {
-      display: inline-block;
-      width: 40%;
-      height: 100px;
-    }
-    .item {
+      height: 40px;
       border: 1px solid red;
     }
+    footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 50px;
+      border: 1px solid green;
+    }
   </style>
-
 </head>
 <body>
-  <div class="wrap"><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div></div>
-  <script>
-    var a = "";
-    for (var i = 0; i < 100000; i++){
-      a += i.toString();
-      history.pushState(0,0,a);
-    }
-  </script>
+  <div id="wrap">
+    <header></header>
+    <div class="body"></div>
+    <footer></footer>
+  </div>
 </body>
 </html>
