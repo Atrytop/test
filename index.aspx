@@ -55,7 +55,7 @@
         这个是为了测试两个的合并功能
       </div>
     </div>
-    <footer>看·这里，看这里。新增加了一行代码</footer>
+    <footer>看·我没有增加啊！</footer>
   </div>
 </body>
 </html>
