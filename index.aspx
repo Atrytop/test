@@ -54,6 +54,9 @@
         <br/>
         这个是为了测试两个的合并功能
       </div>
+      <p>
+        emails:someone***@gmail.com
+      </p>
     </div>
     <footer>看·我没有增加啊！</footer>
   </div>
