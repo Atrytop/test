@@ -6,6 +6,10 @@
   <title>han</title>
   <link rel="stylesheet" href="css/common.css">
   <style>
+    html, body, .wrap {
+      width: 100%;
+      height: 100%;
+    }
     header {
       position: absolute;
       top: 0;
@@ -22,12 +26,25 @@
       height: 50px;
       border: 1px solid green;
     }
+    .body {
+      width: 100%;
+      height: 100%;
+    }
+    .one {
+      width: 50%;
+      height: 50%;
+      border-radius: 100%;
+      background-color: #333;
+      box-shadow: 0 0 5px yellow;
+    }
   </style>
 </head>
 <body>
-  <div id="wrap">
+  <div class="wrap" id="wrap">
     <header></header>
-    <div class="body"></div>
+    <div class="body">
+      <div class="one"></div>
+    </div>
     <footer></footer>
   </div>
 </body>
