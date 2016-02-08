@@ -25,6 +25,7 @@
       width: 100%;
       height: 50px;
       border: 1px solid green;
+      text-align: center;
     }
     .body {
       width: 100%;
@@ -36,17 +37,16 @@
       border-radius: 100%;
       background-color: #333;
       box-shadow: 0 0 5px yellow;
-    }
-    footer {
-      text-align: center;
-      line-height: 50px;
+      background-image: url(../images/1.jpg);
+      background-position: center;
+      background-size: 100% 100%;
     }
   </style>
 </head>
 <body>
   <div class="wrap" id="wrap">
     <header></header>
-    <div class="body">
+    <div class="body dis-flex  main-center cross-center">
       <div class="one">
         这个是为了测试merge版本
       </div>
