@@ -30,10 +30,12 @@
     .body {
       width: 100%;
       height: 100%;
+      background-color: #ccc;
     }
     .one {
       width: 50%;
       height: 50%;
+      border: 5px solid #fff;
       border-radius: 100%;
       background-color: #333;
       box-shadow: 0 0 5px yellow;
