@@ -52,7 +52,8 @@
       <div class="one">
         这个是为了测试merge版本
         <br/>
-        这个是为了测试两个的合并功能
+        这个是为了测试两个的合并功能；
+        这些都没用。瞎折腾
       </div>
       <p>
         emails:hanshuangli01@gmail.com
