@@ -48,7 +48,7 @@
 <body>
   <div class="wrap" id="wrap">
     <header></header>
-    <div class="body dis-flex  main-center cross-center">
+    <div class="body dis-flex col-flex main-center cross-center">
       <div class="one">
         这个是为了测试merge版本
         <br/>
