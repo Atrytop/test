@@ -50,10 +50,7 @@
     <header></header>
     <div class="body dis-flex col-flex main-center cross-center">
       <div class="one">
-        这个是为了测试merge版本
-        <br/>
-        这个是为了测试两个的合并功能；
-        这些都没用。瞎折腾
+        五福临门！！
       </div>
       <p>
         emails:hanshuangli01@gmail.com
