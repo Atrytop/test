@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -37,6 +37,10 @@
       background-color: #333;
       box-shadow: 0 0 5px yellow;
     }
+    footer {
+      text-align: center;
+      line-height: 50px;
+    }
   </style>
 </head>
 <body>
@@ -45,7 +49,7 @@
     <div class="body">
       <div class="one"></div>
     </div>
-    <footer></footer>
+    <footer>看·</footer>
   </div>
 </body>
 </html>
